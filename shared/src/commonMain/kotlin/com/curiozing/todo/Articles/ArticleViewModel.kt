@@ -8,13 +8,14 @@ import kotlinx.coroutines.launch
 
 class ArticleViewModel : BaseViewModel() {
 
-    private var articles:MutableStateFlow<String> = MutableStateFlow("Hey")
-    val _articles : StateFlow<String> get() = articles
+    private var articles: MutableStateFlow<String> = MutableStateFlow("Hey")
+    val _articles: StateFlow<String> get() = articles
 
     init {
         getArticles()
     }
-    private fun getArticles(){
+
+    private fun getArticles() {
         scope.launch {
             delay(1500)
             articles.emit("Hello Droid")
