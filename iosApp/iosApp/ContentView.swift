@@ -25,10 +25,12 @@ class iOSArticleViewModel: ObservableObject {
         }
     }
     
+    
     // Function to update articles if needed
     func getArticles() {
         articleViewModel.getArticles() // Call the shared function if needed
     }
+    
     
     deinit {
         // Clean up resources
