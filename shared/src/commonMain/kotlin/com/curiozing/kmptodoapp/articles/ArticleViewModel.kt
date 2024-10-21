@@ -15,7 +15,7 @@ class ArticleViewModel : BaseViewModel() {
         getArticles()
     }
 
-    fun getArticles() {
+    private fun getArticles() {
         scope.launch {
             delay(500)
             _articles.emit("Partha")
