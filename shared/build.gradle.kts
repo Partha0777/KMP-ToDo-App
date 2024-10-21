@@ -11,7 +11,7 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -24,10 +24,18 @@ kotlin {
     }
 
     sourceSets {
-        commonMain.dependencies {
-            implementation(libs.kotlinx.coroutines.android)
+        val commonMain by getting {
+            dependencies {
+                implementation(libs.kotlinx.coroutines.core) // Ensure you have coroutines for StateFlow
+            }
+        }
+
+        androidMain.dependencies {
             implementation (libs.androidx.lifecycle.viewmodel.ktx)
-            implementation (libs.androidx.lifecycle.viewmodel.compose)
+        }
+
+        iosMain.dependencies {
+
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -36,7 +44,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.curiozing.todo"
+    namespace = "com.curiozing.kmptodoapp"
     compileSdk = 34
     defaultConfig {
         minSdk = 24

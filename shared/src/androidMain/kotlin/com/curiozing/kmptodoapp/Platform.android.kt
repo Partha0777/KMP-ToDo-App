@@ -1,4 +1,4 @@
-package com.curiozing.todo
+package com.curiozing.kmptodoapp
 
 class AndroidPlatform : Platform {
     override val name: String = "Android ${android.os.Build.VERSION.SDK_INT}"

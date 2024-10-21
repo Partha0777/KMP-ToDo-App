@@ -1,4 +1,4 @@
-package com.curiozing.todo
+package com.curiozing.kmptodoapp
 
 class Greeting {
     private val platform: Platform = getPlatform()

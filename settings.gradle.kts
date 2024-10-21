@@ -14,6 +14,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "KMP-TODO"
+rootProject.name = "KmpTodoApp"
 include(":androidApp")
 include(":shared")

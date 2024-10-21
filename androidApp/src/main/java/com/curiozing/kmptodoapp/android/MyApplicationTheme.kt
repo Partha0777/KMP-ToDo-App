@@ -1,4 +1,4 @@
-package com.curiozing.todo.android
+package com.curiozing.kmptodoapp.android
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape

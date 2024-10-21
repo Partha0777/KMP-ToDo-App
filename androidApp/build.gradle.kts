@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "com.curiozing.todo.android"
+    namespace = "com.curiozing.kmptodoapp.android"
     compileSdk = 34
     defaultConfig {
-        applicationId = "com.curiozing.todo.android"
+        applicationId = "com.curiozing.kmptodoapp.android"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
