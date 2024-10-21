@@ -1,6 +1,5 @@
 package com.curiozing.kmptodoapp.articles
 
-// ArticleViewModel.kt
 import com.curiozing.kmptodoapp.BaseViewModel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,7 +15,6 @@ class ArticleViewModel : BaseViewModel() {
         getArticles()
     }
 
-    // Make this function public so it can be accessed in Swift
     fun getArticles() {
         scope.launch {
             delay(500)
@@ -24,7 +22,6 @@ class ArticleViewModel : BaseViewModel() {
         }
     }
 
-    // Expose a method to collect the flow from Swift
     fun observeArticles(onEachArticle: (String) -> Unit) {
         scope.launch {
             articles.onEach { article ->
