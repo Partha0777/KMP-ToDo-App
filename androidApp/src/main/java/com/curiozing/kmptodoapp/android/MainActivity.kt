@@ -10,20 +10,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.curiozing.kmptodoapp.Greeting
-import com.curiozing.kmptodoapp.articles.ArticleViewModel
+import com.curiozing.kmptodoapp.articles.ArticlesViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModel:ArticleViewModel by viewModels()
+        val viewModel:ArticlesViewModel by viewModels()
         setContent {
             MyApplicationTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingView(viewModel.articles.collectAsState().value)
+                    GreetingView("dd")
                 }
             }
         }
