@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -16,13 +17,33 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewModel:ArticlesViewModel by viewModels()
+
         setContent {
+            val articleState = viewModel.articlesState.collectAsState()
+
             MyApplicationTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingView("dd")
+
+                    if(articleState.value.loading){
+                        GreetingView("Loading....")
+                    }
+
+                    if(articleState.value.error != null){
+                        GreetingView("Error....")
+                    }
+
+                    if(articleState.value.articles.isNotEmpty()){
+                        LazyColumn(content = {
+                            articleState.value.articles.forEach {
+                                item {
+                                    Text(text = it.title)
+                                }
+                            }
+                        })
+                    }
                 }
             }
         }
