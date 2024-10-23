@@ -31,10 +31,6 @@ class MainActivity : ComponentActivity() {
                         GreetingView("Loading....")
                     }
 
-                    if(articleState.value.error != null){
-                        GreetingView("Error....")
-                    }
-
                     if(articleState.value.articles.isNotEmpty()){
                         LazyColumn(content = {
                             articleState.value.articles.forEach {
