@@ -25,7 +25,6 @@ class ArticlesViewModel : BaseViewModel() {
             _articlesState.emit(ArticlesState(articles = fetchedArticles))
         }
     }
-
     private suspend fun fetchArticles(): List<Article> = mockArticles
 
     private val mockArticles = listOf(
