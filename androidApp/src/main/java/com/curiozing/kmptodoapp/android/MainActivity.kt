@@ -16,7 +16,7 @@ import com.curiozing.kmptodoapp.articles.ArticlesViewModel
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModel:ArticlesViewModel by viewModels()
+        val viewModel: ArticlesViewModel by viewModels()
 
         setContent {
             val articleState = viewModel.articlesState.collectAsState()
@@ -27,11 +27,11 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    if(articleState.value.loading){
+                    if (articleState.value.loading) {
                         GreetingView("Loading....")
                     }
 
-                    if(articleState.value.articles.isNotEmpty()){
+                    if (articleState.value.articles.isNotEmpty()) {
                         LazyColumn(content = {
                             articleState.value.articles.forEach {
                                 item {
