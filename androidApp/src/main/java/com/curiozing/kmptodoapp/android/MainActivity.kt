@@ -26,13 +26,15 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                   /* LazyColumn(content = {
-                        articleState.value.articles.forEach {
+                    val toDoList = viewModel.getToDo.collectAsState().value
+
+                    LazyColumn(content = {
+                        toDoList.forEach {
                             item {
                                 Text(text = it.title)
                             }
                         }
-                    })*/
+                    })
                 }
             }
         }
