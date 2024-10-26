@@ -11,15 +11,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.curiozing.kmptodoapp.articles.ArticlesViewModel
+import com.curiozing.kmptodoapp.articles.ToDoViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModel: ArticlesViewModel by viewModels()
+        val viewModel: ToDoViewModel by viewModels()
 
         setContent {
-            val articleState = viewModel.articlesState.collectAsState()
 
             MyApplicationTheme {
                 Surface(
@@ -27,19 +26,13 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    if (articleState.value.loading) {
-                        GreetingView("Loading....")
-                    }
-
-                    if (articleState.value.articles.isNotEmpty()) {
-                        LazyColumn(content = {
-                            articleState.value.articles.forEach {
-                                item {
-                                    Text(text = it.title)
-                                }
+                   /* LazyColumn(content = {
+                        articleState.value.articles.forEach {
+                            item {
+                                Text(text = it.title)
                             }
-                        })
-                    }
+                        }
+                    })*/
                 }
             }
         }
