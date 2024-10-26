@@ -3,13 +3,14 @@ package com.curiozing.kmptodoapp.articles
 import com.curiozing.kmptodoapp.BaseViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 class ToDoViewModel : BaseViewModel() {
 
     private val todoState: MutableStateFlow<MutableList<ToDo>> = MutableStateFlow(mutableListOf())
 
-    val getToDo : StateFlow<MutableList<ToDo>> get() = todoState
+    var getToDo : StateFlow<MutableList<ToDo>> = todoState
 
     init {
         getToDoList()
@@ -25,8 +26,8 @@ class ToDoViewModel : BaseViewModel() {
         return getToDo
     }
 
-    private fun addToDoList(toDo: ToDo){
-        todoState.value.add(toDo)
+    fun addToDoList(toDo: ToDo) {
+        todoState.value = (todoState.value + toDo).toMutableList()
     }
 
     private fun deletedToDoList(toDoId:Int) {
