@@ -35,10 +35,12 @@ class ToDoViewModel : BaseViewModel() {
             it.id == toDoId
         }
         todoState.value.remove(toDo)
+        todoState.value = todoState.value
     }
 
     private fun updateToDoList(index:Int, toDo: ToDo) {
         todoState.value.add(index, toDo)
+        todoState.value = todoState.value
     }
 }
 
