@@ -10,18 +10,19 @@ class ToDoViewModel : BaseViewModel() {
 
     private val todoState: MutableStateFlow<MutableList<ToDo>> = MutableStateFlow(mutableListOf())
 
-    var getToDo : StateFlow<MutableList<ToDo>> = todoState
+    var getToDo: StateFlow<MutableList<ToDo>> = todoState
 
     init {
         getToDoList()
     }
 
-    private fun getToDoList() : StateFlow<MutableList<ToDo>>{
+    private fun getToDoList(): StateFlow<MutableList<ToDo>> {
         val mockList = mutableListOf(
-            ToDo(Random.nextInt(0,10),"Workout","All body exercise"),
-            ToDo(Random.nextInt(0,10),"Morning task","Doing all morning tasks"),
-            ToDo(Random.nextInt(0,10),"Afternoon","Doing all Afternoon tasks"),
-            ToDo(Random.nextInt(0,10),"Evening task","Doing all evening tasks"))
+            ToDo(Random.nextInt(0, 10), "Workout", "All body exercise"),
+            ToDo(Random.nextInt(0, 10), "Morning task", "Doing all morning tasks"),
+            ToDo(Random.nextInt(0, 10), "Afternoon", "Doing all Afternoon tasks"),
+            ToDo(Random.nextInt(0, 10), "Evening task", "Doing all evening tasks")
+        )
         todoState.value.addAll(mockList)
         return getToDo
     }
@@ -30,7 +31,7 @@ class ToDoViewModel : BaseViewModel() {
         todoState.value = (todoState.value + toDo).toMutableList()
     }
 
-    private fun deletedToDoList(toDoId:Int) {
+    private fun deletedToDoList(toDoId: Int) {
         val toDo = todoState.value.first {
             it.id == toDoId
         }
@@ -38,7 +39,7 @@ class ToDoViewModel : BaseViewModel() {
         todoState.value = todoState.value
     }
 
-    private fun updateToDoList(index:Int, toDo: ToDo) {
+    private fun updateToDoList(index: Int, toDo: ToDo) {
         todoState.value.add(index, toDo)
         todoState.value = todoState.value
     }
