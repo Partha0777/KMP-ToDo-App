@@ -9,7 +9,6 @@ import kotlin.random.Random
 class ToDoViewModel : BaseViewModel() {
 
     private val todoState: MutableStateFlow<MutableList<ToDo>> = MutableStateFlow(mutableListOf())
-
     var getToDo: StateFlow<MutableList<ToDo>> = todoState
 
     init {
